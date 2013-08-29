@@ -19,3 +19,5 @@ to the codecs setup at your class where Paul's Sound System is used.
 
 Please use the Paulscode's forum for advices, critique, etc. 
 http://www.paulscode.com/forum/index.php?topic=496.0
+
+License: LGPLv3
