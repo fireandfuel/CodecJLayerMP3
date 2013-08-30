@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="CodecJLayerMP3" basedir="." default="main">
+
+	<property name="target" value="1.6" />
+	<property name="source" value="1.6" />
+
+	<property name="src.dir" value="src" />
+	<property name="build.dir" value="build" />
+	<property name="deploy.dir" value="deploy" />
+
+	<property name="deploy.file" value="${ant.project.name}" />
+	<property name="deploy.version" value="r3" />
+	<property name="deploy.creator" value="fireandfuel (fireandfuel@hotmail.de)" />
+
+	<fileset id="lib_set" dir="lib" includes="**/*.jar" />
+
+	<path id="classpath">
+		<fileset refid="lib_set" />
+	</path>
+
+	<target name="setup_dirs">
+		<delete dir="${build.dir}" />
+		<delete dir="${deploy.dir}" />
+
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${deploy.dir}" />
+	</target>
+
+	<target name="build" depends="setup_dirs">
+		<javac debug="on" srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" classpathref="classpath" />
+	</target>
+
+	<target name="deploy" depends="build">
+		<jar destfile="${deploy.dir}/${deploy.file}.${deploy.version}.jar" basedir="${build.dir}">
+			<manifest>
+				<attribute name="Created-By" value="${deploy.creator}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="clean_build">
+		<delete dir="${build.dir}" />
+	</target>
+
+	<target name="cleanup">
+		<delete dir="${build.dir}" />
+		<delete dir="${deploy.dir}" />
+	</target>
+
+	<target name="main" depends="deploy, clean_build">
+		<description>
+		</description>
+	</target>
+</project>

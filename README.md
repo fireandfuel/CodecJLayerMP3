@@ -4,6 +4,11 @@ CodecJLayerMP3
 A mp3 codec library for Paulcode's 3D Sound System.
 It based on parts of JLayer (mpeg decoder library), MP3SPI and Tritonus library.
 
+How to deploy:
+
+Use the ANT build script build.xml.
+Default build target is: main 
+
 How to use it:
 
 If you use a IDE: Add the codec plugin to your build path.
