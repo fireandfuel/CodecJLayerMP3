@@ -210,7 +210,7 @@ public class CodecJLayerMP3 implements ICodec
 			{
 				myAudioInputStream.execute();
 				if((cnt = myAudioInputStream.read(streamBuffer, bytesRead, streamBuffer.length
-						- bytesRead)) <= 0)
+						- bytesRead)) < 0)
 				{
 					endOfStream(SET, true);
 					break;
@@ -316,7 +316,7 @@ public class CodecJLayerMP3 implements ICodec
 					{
 						myAudioInputStream.execute();
 						if((cnt = myAudioInputStream.read(smallBuffer, bytesRead,
-								smallBuffer.length - bytesRead)) <= 0)
+								smallBuffer.length - bytesRead)) < 0)
 						{
 							endOfStream(SET, true);
 							break;
